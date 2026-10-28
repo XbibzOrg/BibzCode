@@ -18,7 +18,7 @@ jobs:
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with: {node-version: '24.15.0', cache: npm, cache-dependency-path: ide/codeoss/package-lock.json}
       - run: |
           sudo apt-get update
@@ -42,7 +42,7 @@ jobs:
     runs-on: windows-2025
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with: {node-version: '24.15.0', cache: npm, cache-dependency-path: ide/codeoss/package-lock.json}
       - working-directory: ide/codeoss
         shell: bash
@@ -59,7 +59,7 @@ jobs:
     runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with: {node-version: '24.15.0', cache: npm, cache-dependency-path: ide/codeoss/package-lock.json}
       - working-directory: ide/codeoss
         run: npm ci && npm run verify && node scripts/prepare-upstream.mjs && npm run audit:prepared
