@@ -36,7 +36,7 @@ jobs:
     steps:
       # Checkout the repository to the GitHub Actions runner
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # Codacy 4.0.0's SARIF formatter tries to decode binary release and Git
       # object files as UTF-8. Export a source-only tree outside the checkout so
