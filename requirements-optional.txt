@@ -1,4 +1,4 @@
-reportlab>=4,<5
+reportlab>=4,<6
 selenium>=4.20,<5
 webdriver-manager>=4,<5
 mcp>=1.10,<2
