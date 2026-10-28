@@ -29,7 +29,7 @@ dependencies = [
 [project.optional-dependencies]
 full = [
   "reportlab>=4,<5", "selenium>=4.20,<5", "webdriver-manager>=4,<5",
-  "mcp>=1.10,<2", "matplotlib>=3.8,<4",
+  "mcp>=1.10,<3", "matplotlib>=3.8,<4",
 ]
 test = ["pytest>=8,<10", "pytest-cov>=5,<8"]
 
