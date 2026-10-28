@@ -53,7 +53,7 @@ jobs:
       - run: npm ci
       - run: npm audit
       - run: npm run dist:linux
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v4
         with:
           subject-path: |
             ide/release/*.deb
@@ -86,7 +86,7 @@ jobs:
       - run: npm ci
       - run: npm audit
       - run: npm run dist:windows
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v4
         with:
           subject-path: ide/release/*.exe
       - uses: actions/upload-artifact@v4
@@ -130,7 +130,7 @@ jobs:
             export CSC_IDENTITY_AUTO_DISCOVERY=false
           fi
           npm run dist:mac
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v4
         with:
           subject-path: |
             ide/release/*.dmg
