@@ -34,7 +34,7 @@ jobs:
           mkdir -p "$RUNNER_TEMP/bibzcode-workspace" "$RUNNER_TEMP/bibzcode-profile" "$RUNNER_TEMP/bibzcode-extensions"
           printf 'print("native smoke")\n' > "$RUNNER_TEMP/bibzcode-workspace/main.py"
           xvfb-run -a ide/codeoss/.work/VSCode-linux-x64/bin/bibzcode --no-sandbox --disable-gpu --skip-welcome --skip-release-notes --disable-updates --user-data-dir "$RUNNER_TEMP/bibzcode-profile" --extensions-dir "$RUNNER_TEMP/bibzcode-extensions" --extensionDevelopmentPath="$GITHUB_WORKSPACE/ide/codeoss/.work/vscode/extensions/bibzcode-ai" --extensionTestsPath="$GITHUB_WORKSPACE/ide/codeoss/extension/test/integration.js" "$RUNNER_TEMP/bibzcode-workspace"
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v4
         with: {subject-path: "ide/codeoss/release/*"}
       - uses: actions/upload-artifact@v4
         with: {name: 'codeoss-linux-${{ matrix.arch }}', path: 'ide/codeoss/release/*', if-no-files-found: error}
@@ -51,7 +51,7 @@ jobs:
         shell: bash
         env: {GITHUB_TOKEN: '${{ github.token }}', BIBZCODE_BUILD_PLATFORM: win32, BIBZCODE_BUILD_ARCH: x64}
         run: bash scripts/build-client.sh
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v4
         with: {subject-path: "ide/codeoss/release/*"}
       - uses: actions/upload-artifact@v4
         with: {name: codeoss-windows-x64, path: 'ide/codeoss/release/*', if-no-files-found: error}
@@ -74,7 +74,7 @@ jobs:
         run: bash scripts/build-client.sh
       - working-directory: ide/codeoss
         run: bash scripts/package-macos-universal.sh
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v4
         with: {subject-path: "ide/codeoss/release/*universal*"}
       - uses: actions/upload-artifact@v4
         with: {name: codeoss-macos-universal, path: 'ide/codeoss/release/*universal*', if-no-files-found: error}
